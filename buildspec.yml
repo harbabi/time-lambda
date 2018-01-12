@@ -1,0 +1,13 @@
+version: 0.1
+phases:
+  install:
+    commands:
+      - pwd && cd v1 && npm install time
+      - pwd && cd v2 && npm install time
+      - pwd && cd v3 && npm install time
+      - aws cloudformation package --template-file lambdatemplate.yaml --s3-bucket test-sam2 --output-template-file newlambdatemplate.yaml
+artifacts:
+  type: zip
+  files:
+    - newlambdatemplate.yaml
+
