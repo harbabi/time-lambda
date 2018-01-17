@@ -7,12 +7,15 @@ Parameters:
         Type: String
     Var2:
         Type: String
+    Branch:
+        Type: String
 
 Resources:
   MyLambdaFunctionV1:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: "V1-MyLambdaFunction"
+      FunctionName:
+        Fn::Sub: V1-MyLambdaFunction-${Branch}
       Handler: index.handler
       Runtime: nodejs4.3
       CodeUri: ./v1
@@ -25,7 +28,8 @@ Resources:
   MyLambdaFunctionV2:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: "V2-MyLambdaFunction"
+      FunctionName:
+        Fn::Sub: V2-MyLambdaFunction-${Branch}
       Handler: index.handler
       Runtime: nodejs4.3
       CodeUri: ./v2
@@ -38,7 +42,8 @@ Resources:
   MyLambdaFunctionV3:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: "V3-MyLambdaFunction"
+      FunctionName:
+        Fn::Sub: V3-MyLambdaFunction-${Branch}
       Handler: index.handler
       Runtime: nodejs4.3
       CodeUri: ./v3
