@@ -5,9 +5,9 @@ phases:
       - pwd && cd v1 && npm install time
       - pwd && cd v2 && npm install time
       - pwd && cd v3 && npm install time
-      - aws cloudformation package --template-file lambdatemplate.yaml --s3-bucket test-sam2 --output-template-file newlambdatemplate.yaml
+      - aws cloudformation package --template-file template.yaml --s3-bucket test-sam2 --output-template-file newtemplate.yaml
 artifacts:
   type: zip
   files:
-    - newlambdatemplate.yaml
+    - newtemplate.yaml
 
